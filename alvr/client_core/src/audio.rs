@@ -56,12 +56,12 @@ pub async fn record_audio_loop(
             .set_shared()
             .set_performance_mode(PerformanceMode::LowLatency)
             .set_sample_rate(sample_rate as _)
-            .set_sample_rate_conversion_quality(SampleRateConversionQuality::Fastest)
+            .set_sample_rate_conversion_quality(SampleRateConversionQuality::None)
             .set_mono()
             .set_i16()
             .set_input()
-            .set_usage(Usage::VoiceCommunication)
-            .set_input_preset(InputPreset::VoiceCommunication)
+            // .set_usage(Usage::VoiceCommunication)
+            // .set_input_preset(InputPreset::VoiceCommunication)
             .set_callback(RecorderCallback {
                 sender: data_sender,
             })

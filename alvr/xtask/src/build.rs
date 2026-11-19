@@ -232,7 +232,7 @@ pub fn build_client_lib(profile: Profile) {
 
     cmd!(
         sh,
-        "cargo ndk -t arm64-v8a -p 26 -o {build_dir} build {flags_ref...}"
+        "cargo ndk -t arm64-v8a -P 29 -o {build_dir} build {flags_ref...}"
     )
     .run()
     .unwrap();

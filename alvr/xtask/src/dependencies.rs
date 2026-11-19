@@ -243,7 +243,8 @@ pub fn build_android_deps(skip_admin_priv: bool) {
     let sh = Shell::new().unwrap();
 
     if cfg!(windows) && !skip_admin_priv {
-        choco_install(&sh, &["unzip", "llvm"]).unwrap();
+        choco_install(&sh, &["unzip"]).unwrap();
+        choco_install(&sh, &["llvm", "--version=15.0.7"]).unwrap();
     }
 
     cmd!(sh, "rustup target add aarch64-linux-android")
@@ -251,5 +252,5 @@ pub fn build_android_deps(skip_admin_priv: bool) {
         .unwrap();
     cmd!(sh, "cargo install cargo-ndk cbindgen").run().unwrap();
 
-    get_oculus_openxr_mobile_loader();
+    // get_oculus_openxr_mobile_loader();
 }
